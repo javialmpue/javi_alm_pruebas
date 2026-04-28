@@ -31,7 +31,7 @@ models:
         description: "gt"
 
 
-models:
+
   - name: ORDERITEMS   
     description: "Tabla de staging de direcciones."
     columns:
@@ -57,7 +57,7 @@ models:
         description: "gt"
 
 
-models:
+
   - name: ORDER   
     description: "Tabla de staging de pedidos."
     columns:
@@ -112,7 +112,7 @@ models:
         description: "gt"
 
 
-models:
+
   - name: PRODUCTS   
     description: "Tabla de staging de productos."
     columns:
@@ -141,7 +141,7 @@ models:
 
 
 
-models:
+
   - name: PROMOS   
     description: "Tabla de staging de Promos."
     columns:
@@ -166,7 +166,6 @@ models:
         description: "gt"
 
 
-models:
   - name: USER   
     description: "Tabla de staging de Usuarios."
     columns:
