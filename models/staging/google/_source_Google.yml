@@ -19,3 +19,11 @@ sources:
           - name: MONTH
           - name: PRODUCT_ID
           - name: _FIVETRAN_SYNCED
+
+      - name: user
+        columns:
+          - name: NOMBRE
+          - name: DNI
+          - name: EMAIL
+          - name: FECHA_ALTA_SISTEMA
+          
