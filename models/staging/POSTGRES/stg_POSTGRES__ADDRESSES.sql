@@ -1,14 +1,17 @@
 {{ config(
-    materialized = 'table',
-    tag = ['silver']
-)}}
+    materialized='incremental',
+    unique_key = 'address_id',
+    incremental_strategy='append'
+) }}
 
 
 with source as (
 
     select * 
     from {{ source('POSTGRES', 'ADDRESSES') }}
-
+{% if is_incremental() %}
+    WHERE _fivetran_synced > (SELECT MAX(_fivetran_synced) FROM {{ this }})
+{% endif %}
 ),
 
 renamed as (

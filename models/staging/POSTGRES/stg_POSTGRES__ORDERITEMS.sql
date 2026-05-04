@@ -1,14 +1,17 @@
 {{ config(
-    materialized = 'table',
-    tag = ['silver']
-)}}
+    materialized='incremental',
+    unique_key = 'order_id',
+    incremental_strategy='delete+insert'
+) }}
 
 
 with source as (
 
     select * 
     from {{ source('POSTGRES', 'ORDERITEMS') }}
-
+    {% if is_incremental() %}
+    WHERE _fivetran_synced > (SELECT MAX(_fivetran_synced) FROM {{ this }})
+    {% endif %}
 ),
 
 renamed as (
