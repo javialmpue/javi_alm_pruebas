@@ -6,6 +6,7 @@
       unique_key='DNI',
       strategy='timestamp',
       updated_at='FECHA_ALTA_SISTEMA',
+      hard_deletes=True
     )
 }}
 
